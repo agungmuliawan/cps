@@ -55,6 +55,17 @@ class M_modul extends CI_Model {
       return 0;
     }
   }
+  public function select_all_data_pegawai_libur()
+  {
+    $query = $this->db->query('select tb_penjadwalan.*, tb_perawat.nama_perawat as nama from tb_penjadwalan, tb_perawat where tb_penjadwalan.id_perawat = tb_perawat.id_perawat');
+    $num = $query->num_rows();
+    if($num>0){
+      return $query->result();
+    }
+    else {
+      return 0;
+    }
+  }
     public function select_all_libur()
   {
     $query = $this->db->query('select * from tb_libur');
@@ -102,6 +113,48 @@ class M_modul extends CI_Model {
     else {
       return 0;
     }
+  }
+  public function query_4()
+  {
+    $query = $this->db->query('select tb_perawat.nama_perawat as nama_perawat from tb_penjadwalan, tb_perawat 
+    where tb_penjadwalan.id_perawat = tb_perawat.id_perawat');
+    $num = $query->num_rows();
+    if($num>0){
+      return $query->result();
+    }
+    else {
+      return 0;
+    }
+  }
+  public function proses($id_libur)
+  {
+     // $panggil = $this->session->userdata();
+      $query = $this->db->query('select * from');
+      $num = $query->num_rows();
+      if ($num>0) {
+          //Mengirimkan data array hasil query
+          return $query->result();
+      //Function result() hampir sama dengan function mysql_fetch_array()
+      } else {
+          return 0;
+          //Kirimkan 0 jika tidak ada datanya
+      }
+  }
+
+  public function getPerawatNotInJadwal($perawat_ids){
+    // $query = $this->db->from('tb_perawat')
+    //         ->where_not_in('id_perawat', $perawat_ids)
+    //         ->get();
+    $query = $this->db->query('
+          select 
+            *
+          from tb_perawat 
+          where id_perawat not in ('.$perawat_ids.')')
+          ->result();
+            // print_r($this->db->last_query());  
+    #kenapa ini gung ? kwkw 
+    #buat ngedump sqlnya gimana gung di ci ? gak tau ab wkwk'
+    return $query;
   }
 }
 

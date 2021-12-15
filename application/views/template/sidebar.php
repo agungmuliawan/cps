@@ -49,8 +49,10 @@ $panggil = $this->session->userdata();
 					</li>
 					<!-- <li><a href="<?php echo site_url('admin/C_modul')?>"><i class="ti-folder"></i>
 							<span>Pengumuman</span></a></li> -->
-							<li><a href="<?php echo site_url('admin/C_modul/perawat_null')?>"><i
+							<li><a href="<?php echo site_url('admin/C_modul/penjadwalan')?>"><i
 								class="ti-info"><span>Cek Schedule</span></i></a></li>
+								<li><a href="<?php echo site_url('admin/C_modul/pegawai_libur')?>"><i class="ti-star"></i>
+							<span>Pegawai Libur</span></a></li>
 							<li><a href="<?php echo site_url('admin/C_bio_dsn')?>"><i class="ti-user"></i>
 							<span>Biodata</span></a></li>
 					
