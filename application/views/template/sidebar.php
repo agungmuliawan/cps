@@ -51,25 +51,16 @@ $panggil = $this->session->userdata();
 							<span>Pengumuman</span></a></li> -->
 							<li><a href="<?php echo site_url('admin/C_modul/penjadwalan')?>"><i
 								class="ti-info"><span>Cek Schedule</span></i></a></li>
+								<li><a href="<?php echo site_url('admin/C_sir')?>"><i class="ti-user"></i>
+							<span>Prediksi SIR</span></a></li>
+								<li><a href="<?php echo site_url('admin/C_sir/hasil_prediksi')?>"><i class="ti-star"></i>
+								<span>Data Prediksi SIR</span></a></li>
 								<li><a href="<?php echo site_url('admin/C_modul/pegawai_libur')?>"><i class="ti-star"></i>
 							<span>Pegawai Libur</span></a></li>
 							<li><a href="<?php echo site_url('admin/C_bio_dsn')?>"><i class="ti-user"></i>
 							<span>Biodata</span></a></li>
 					
 
-					<?php
-                    } elseif($panggil['level'] == 'dosen') {
-                	?>
-					<li class="active">
-						<a href="<?php echo site_url('dosen/C_home')?>" aria-expanded="true"><i
-								class="ti-home active"></i><span>Home</span></a>
-					</li>
-                    <li><a href="<?php echo site_url('dosen/C_bio_dsn')?>"><i class="ti-folder"></i>
-							<span>Biodata</span></a></li>
-                    <li><a href="<?php echo site_url('dosen/C_modul_dsn')?>"><i class="ti-folder"></i>
-							<span>E-Modul</span></a></li>
-					<li><a href="<?php echo site_url('dosen/C_pgm_dsn')?>"><i
-								class="ti-info"><span>Pengumuman</span></i></a></li>
 					<?php
                     } else {
                     ?>

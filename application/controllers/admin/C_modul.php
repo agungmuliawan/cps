@@ -210,6 +210,20 @@ class C_modul extends CI_Controller
      // die();
       //$this->load->view('admin/V_proses', $data);
     }
+    public function lihat()
+    {
+      $data['daftar'] = $this->M_modul->select_lihat();
+	  //var_dump($data);
+//	die();
+		$this->load->view('admin/V_lihat_masuk', $data);
+    }
+    public function truncate_data()
+     {
+        //$data['prediksi'] = $this->M_sir->truncate();
+        $this->db->truncate('tb_penjadwalan');
+        redirect('admin/C_modul/pegawai_libur','refresh');
+     }
+    
 	}
 
 

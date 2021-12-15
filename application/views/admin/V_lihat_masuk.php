@@ -49,7 +49,7 @@ $panggil = $this->session->userdata();
 							<h4 class="page-title pull-left">Dashboard</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Data Modul</span></li>
+								<li><span>Data Pegawai Masuk</span></li>
 							</ul>
 						</div>
 					</div>
@@ -81,30 +81,32 @@ $panggil = $this->session->userdata();
 						<div class="card">
 							<div class="card-body">
 								<!-- <h4 class="header-title">Data Table Dark</h4> -->
-								<a href="<?php echo site_url('admin/C_modul/truncate_data');?>" button type="button"
-									class="btn btn-dark mb-3">Truncate Data></a>
+								<a href="<?php echo site_url('admin/C_modul/tambah_data_libur');?>" button type="button"
+									class="btn btn-dark mb-3">Hapusbutton></a>
 								<div class="data-tables datatable-dark">
 									<table id="dataTable3" class="text-center">
 										<thead class="text-capitalize">
 											<tr>
 												<th>No</th>
 												<th>Nama Perawat</th>
-												<th>Tanggal</th>
+                                                <th>Tanggal Masuk Perawat</th>
+                                                <th>Status</th>
 											</tr>
 										</thead>
 										<?php
 										$no = 1;
-										if ($daftar_libur == 0) {
+										if ($daftar == 0) {
 										echo "<script>alert('Data modul kosong')</script>";
 										}
 										else {
 										/*while($data = mysql_fetch_array($query))*/
-										foreach ($daftar_libur as $row) {
+										foreach ($daftar as $row) {
 											?>
 										<tr>
 											<td style="text-align: center;"><?php echo $no;?></td>
 											<td><?php echo $row->nama?></td>
-											<td><?php echo $row->tgl?></td>
+											<td><?php echo $row->tgl_masuk?></td>
+                                            <td>Aktif</td>
 										</tr>
 										<?php
                                         $no++;

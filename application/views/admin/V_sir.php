@@ -81,30 +81,41 @@ $panggil = $this->session->userdata();
 						<div class="card">
 							<div class="card-body">
 								<!-- <h4 class="header-title">Data Table Dark</h4> -->
-								<a href="<?php echo site_url('admin/C_modul/truncate_data');?>" button type="button"
-									class="btn btn-dark mb-3">Truncate Data></a>
+								<a href="<?php echo site_url('admin/C_sir/tambah_prediksi');?>" button type="button"
+									class="btn btn-dark mb-3">Tambah Prediksi SIR</button></a>
 								<div class="data-tables datatable-dark">
 									<table id="dataTable3" class="text-center">
 										<thead class="text-capitalize">
 											<tr>
 												<th>No</th>
-												<th>Nama Perawat</th>
-												<th>Tanggal</th>
+												<th>Susceptible</th>
+												<th>Invective</th>
+												<th>Recovered</th>
+												<th>Aksi</th>
 											</tr>
 										</thead>
 										<?php
 										$no = 1;
-										if ($daftar_libur == 0) {
+										if ($sir == 0) {
 										echo "<script>alert('Data modul kosong')</script>";
 										}
 										else {
 										/*while($data = mysql_fetch_array($query))*/
-										foreach ($daftar_libur as $row) {
+										foreach ($sir as $row) {
 											?>
 										<tr>
 											<td style="text-align: center;"><?php echo $no;?></td>
-											<td><?php echo $row->nama?></td>
-											<td><?php echo $row->tgl?></td>
+											<td><?php echo $row->s?></td>
+											<td><?php echo $row->i?></td>
+											<td><?php echo $row->r?></td>
+											<td>
+												<a href="<?php echo site_url('admin_area/C_user/hapus_data_user/'.$row->id_libur)?>"
+													span class="btn btn-success"><span
+														class=" glyphicon glyphicon-edit"> Edit</span></a>
+                                                        <a href="<?php echo site_url('admin_area/C_user/hapus_data_user/'.$row->id_libur);?>"
+													span class="btn btn-danger">Hapus</a>
+												
+											</td>
 										</tr>
 										<?php
                                         $no++;

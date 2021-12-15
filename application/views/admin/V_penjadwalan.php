@@ -123,7 +123,7 @@ $panggil = $this->session->userdata();
 								</div>
 								<div class="col-md-2 form-group">
 									<input type="submit" value="Proses Penjadwalan" class="btn btn-dark mb-3">
-									<a href="<?php echo site_url('admin/C_modul/proses');?>" button type="button"
+									<a href="<?php echo site_url('admin/C_modul/lihat');?>" button type="button"
 									class="btn btn-dark mb-3">Lihat Penjadwalan</button></a>
 								</div>
 								

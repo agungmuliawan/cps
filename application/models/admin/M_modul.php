@@ -114,6 +114,17 @@ class M_modul extends CI_Model {
       return 0;
     }
   }
+  public function select_lihat()
+  {
+    $query = $this->db->query('select tb_masuk.*, tb_perawat.nama_perawat as nama from tb_masuk, tb_perawat where tb_masuk.id_perawat = tb_perawat.id_perawat');
+    $num = $query->num_rows();
+    if($num>0){
+      return $query->result();
+    }
+    else {
+      return 0;
+    }
+  }
   public function query_4()
   {
     $query = $this->db->query('select tb_perawat.nama_perawat as nama_perawat from tb_penjadwalan, tb_perawat 
