@@ -45,12 +45,4 @@
 <!-- others plugins -->
 <script src="<?php echo base_url('assets/js/plugins.js') ?>"></script>
 <script src=" <?php echo base_url('assets/js/scripts.js') ?>"></script>
-
-
-
-<script>
-	$(document).ready(function () {
-		console.log('work');
-	})
-
-</script>
+<!-- <script src="<?php echo base_url('assets/js/zingchart.min.js')?>"></script> -->

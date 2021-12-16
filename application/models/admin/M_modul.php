@@ -162,10 +162,32 @@ class M_modul extends CI_Model {
           from tb_perawat 
           where id_perawat not in ('.$perawat_ids.')')
           ->result();
-            // print_r($this->db->last_query());  
-    #kenapa ini gung ? kwkw 
-    #buat ngedump sqlnya gimana gung di ci ? gak tau ab wkwk'
     return $query;
+  }
+  public function getPerawatNew($perawat_ids){
+    // $query = $this->db->from('tb_perawat')
+    //         ->where_not_in('id_perawat', $perawat_ids)
+    //         ->get();
+    $query = $this->db->query('
+          select 
+            *
+          from tb_perawat 
+          where id_perawat not in ('.$perawat_ids.')')
+          ->result();
+            // print_r($this->db->last_query());  
+    return $query;
+  }
+  public function get_libur()
+  {
+    //ini querynya ngambil tb_libur ab? atau foreach libur?
+    $query = $this->db->query('select * from tb_libur');
+    $num = $query->num_rows();
+    if($num>0){
+      return $query->result();
+    }
+    else {
+      return 0;
+    }
   }
 }
 

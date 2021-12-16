@@ -66,11 +66,10 @@ $panggil = $this->session->userdata();
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Tambah Data libur</h4>
+							<h4 class="page-title pull-left">Proses Prediksi Metode SIR</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Data libur</span></li>
-								<li><span>Tambah Data libur</span></li>
+								<li><span>Prediksi SIR</span></li>
 							</ul>
 						</div>
 					</div>
@@ -104,29 +103,33 @@ $panggil = $this->session->userdata();
 						<label for="example-text-input" class="col-form-label">Recovered (R)</label>
 						<input class="form-control" name="r" type="text" placeholder="Input R..." required">
 					</div>
+					<div class="form-group">
+						<label for="example-text-input" class="col-form-label">Banyak Hari Prediksi</label>
+						<input class="form-control" name="jml" type="text" placeholder="Input Banyak Hari..." required">
 					</div>
-				
-					<button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
 				</div>
-				<!-- page title area end -->
-				<div class="main-content-inner">
-					<div class="row">
-						<!-- seo fact area start -->
-						<div class="col-12 mt-5">
-							<div class="card">
-								<div class="card-body">
-									<!-- <h4 class="header-title">Data Table Dark</h4> -->
-								</div>
+
+				<button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+			</div>
+			<!-- page title area end -->
+			<div class="main-content-inner">
+				<div class="row">
+					<!-- seo fact area start -->
+					<div class="col-12 mt-5">
+						<div class="card">
+							<div class="card-body">
+								<!-- <h4 class="header-title">Data Table Dark</h4> -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<?php
+	<?php
     $this->load->view('template/js');
     ?>
-		<?php
+	<?php
     $this->load->view('template/foot');
     ?>

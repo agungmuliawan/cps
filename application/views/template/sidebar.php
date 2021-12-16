@@ -44,21 +44,26 @@ $panggil = $this->session->userdata();
 						<ul class="collapse">
 							<li><a href="<?php echo site_url('admin/C_user')?>">Data User</a></li>
 							<li><a href="<?php echo site_url('admin/C_modul/perawat')?>">Data Perawat</a></li>
-							<li><a href="<?php echo site_url('admin/C_modul/libur')?>">Data Libur</a></li>>
+							<li><a href="<?php echo site_url('admin/C_modul/libur')?>">Data Linier Regresion</a></li>>
 						</ul>
 					</li>
 					<!-- <li><a href="<?php echo site_url('admin/C_modul')?>"><i class="ti-folder"></i>
 							<span>Pengumuman</span></a></li> -->
-							<li><a href="<?php echo site_url('admin/C_modul/penjadwalan')?>"><i
-								class="ti-info"><span>Cek Schedule</span></i></a></li>
+							
 								<li><a href="<?php echo site_url('admin/C_sir')?>"><i class="ti-user"></i>
 							<span>Prediksi SIR</span></a></li>
 								<li><a href="<?php echo site_url('admin/C_sir/hasil_prediksi')?>"><i class="ti-star"></i>
 								<span>Data Prediksi SIR</span></a></li>
+								<li><a href="<?php echo site_url('admin/C_modul/penjadwalan')?>"><i
+								class="ti-info"><span>Cek Schedule</span></i></a></li>
 								<li><a href="<?php echo site_url('admin/C_modul/pegawai_libur')?>"><i class="ti-star"></i>
 							<span>Pegawai Libur</span></a></li>
+							<li><a href="<?php echo site_url('admin/C_modul/lihat')?>"><i class="ti-star"></i>
+							<span>Pegawai Masuk</span></a></li>
 							<li><a href="<?php echo site_url('admin/C_bio_dsn')?>"><i class="ti-user"></i>
 							<span>Biodata</span></a></li>
+							<!-- <li><a href="<?php echo site_url('admin/C_modul/penjadwalan')?>"><i class="ti-user"></i>
+							<span>New penjadwalan</span></a></li> -->
 					
 
 					<?php

@@ -72,7 +72,7 @@ $panggil = $this->session->userdata();
 					</div>
 				</div>
 			</div>
-
+			
 			<!-- page title area end -->
 			<div class="main-content-inner">
 				<div class="row">

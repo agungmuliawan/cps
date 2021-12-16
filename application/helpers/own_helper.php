@@ -6,6 +6,10 @@
         echo "</pre>";
             
         }
+    function dd(... $array){
+        pre($array);
+        die();
+    }
 
 
 

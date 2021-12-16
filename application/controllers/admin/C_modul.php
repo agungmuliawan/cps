@@ -148,67 +148,165 @@ class C_modul extends CI_Controller
      // mysql_query($sql);
       
       die();
-      //$this->load->view('mahasiswa/V_khs', $data);
     }
-    public function proses_baru()
+    public function proses_baru2()
     {
-      $jumlah_perawat        = $_POST['jumlah_perawat'];
-      $tgl        = $_POST['tgl'];
-      $cek = $_POST['id_perawat'];
+    //   $jumlah_perawat        = $_POST['jumlah_perawat'];
+    //   $tgl        = $_POST['tgl'];
+    //   $cek = $_POST['id_perawat'];
+    //   $result = array();
+    //   foreach($_POST['id_perawat'] AS $key => $val){
+    //     $result[] = array(
+    //      'id_perawat'   => $_POST['id_perawat'][$key],
+    //      'tgl'   => $_POST['tgl']
+    //     );
+    //     // array_push($arr_id_perawat, $_POST['id_perawat'][$key]);
+    //   //  $this->db->insert_batch('tb_penjadwalan', $result);
+    //   }
+    // $arr_id_perawat = $_POST['id_perawat'];
+    // $count_id_perawat = count($arr_id_perawat) -2;
+    // $in_perawat = '';
+    // foreach ($arr_id_perawat as $key => $value) {
+    //   $semicolon = ',';
+    //   if($count_id_perawat < $key)
+    //     $semicolon = '';
+    //   $in_perawat.= "'$value'". $semicolon;
+    // }
+    // $perawat_not_in = $this->M_modul->getPerawatNotInJadwal($in_perawat);
+    //  echo "<pre>";
+    //  var_dump($result); 
+    //  echo "</pre>"; 
+    //   echo "<br>simpan data libur <br> ";
+    //   //$this->db->insert_batch('tb_penjadwalan', $result); //kalau ini yg tb_libur
+    //   $result2 = array();
+    //   foreach($perawat_not_in AS $key => $val){
+    //     $result2[] = array(
+    //      'id_perawat'   => $val->id_perawat,
+    //      'tgl_masuk'   => $_POST['tgl']
+    //     );
+    //    // $this->db->insert_batch('tb_masuk', $result2); //ini ab
+    //   }
+    //  // $this->db->insert_batch('tb_masuk', $result2); //ini yg tb_masuk
+    //   echo '<script>alert("Sukses Penjadwalan")</script>';
+    //   redirect('admin/C_modul/pegawai_libur','refresh');
+    // }
+    // public function proses_baru2()
+    // {
+    //   $jumlah_perawat        = $_POST['jumlah_perawat'];
+    //   $tgl        = $_POST['tgl'];
+    //   //$cek = $_POST['id_perawat'];
+    //   $result= $this->db->query("SELECT * FROM tb_libur where tgl = '".$tgl."'")->result();
+    //   foreach ($result as $row) {
+    //     $banyak_libur = $row->libur;
+    //   }
       
-     // var_dump($cek);
-      //foreach ($_POST['id_perawat'] as $value) {
-        //return ($this->db->insert('tb_penjadwalan',$value)) ? $this->db->id_perawat() : false;
-      //  mysqli_query("INSERT into hobi(hobi) VALUES('".$value."')");
-      //echo $value;
-      //return $this->db->insert('tb_penjadwalan',$value);
-      $result = array();
-      foreach($_POST['id_perawat'] AS $key => $val){
-        $result[] = array(
-         'id_perawat'   => $_POST['id_perawat'][$key],
-         'tgl'   => $_POST['tgl']
-        );
-        // array_push($arr_id_perawat, $_POST['id_perawat'][$key]);
-        $this->db->insert_batch('tb_penjadwalan', $result);
-      }
-    $arr_id_perawat = $_POST['id_perawat'];
-    $count_id_perawat = count($arr_id_perawat) -2;
-    $in_perawat = '';
-    foreach ($arr_id_perawat as $key => $value) {
-      $semicolon = ',';
-      if($count_id_perawat < $key)
-        $semicolon = '';
-      $in_perawat.= "'$value'". $semicolon;
-    }
-    // $arr_id_perawat = implode(',', $arr_id_perawat);
-    $perawat_not_in = $this->M_modul->getPerawatNotInJadwal($in_perawat);
-    
-     
-     echo "<pre>";
-     var_dump($result); 
-     echo "</pre>"; 
-      echo "<br>simpan data libur <br> ";
-      //$this->db->insert_batch('tb_penjadwalan', $result);
-      $result2 = array();
-      foreach($perawat_not_in AS $key => $val){
-        $result2[] = array(
-         'id_perawat'   => $val->id_perawat,
-         'tgl_masuk'   => $_POST['tgl']
-        );
-        $this->db->insert_batch('tb_masuk', $result2);
-      }
-      echo "<pre>";
-      var_dump($result2);
-      echo "</pre>";
-      echo "<br>simpan data masuk <br> ";
-      echo "sukses";
-      //$result2= $this->db->query("SELECT * FROM tb_perawat where id_libur not like $result '")->result();
-      //var_dump($result2);
-      //$result2 = array();
-      //$this->db->insert_batch('tb_penjadwalan', $result2);
+    //   echo $banyak_libur;
+    //   echo $tgl;
+    //   echo "<br>";
+    //   die();
+    //   for ($i=1; $i <= $banyak_libur; $i++) { 
+    //     echo $i;
+    //   }
+    //  // $perawat_not_in = $this->M_modul->getPerawatNotInJadwal($in_perawat);
+      
+    //  // die();
+    //   $result = array();
+    //   foreach($_POST['id_perawat'] AS $key => $val){
+    //     $result[] = array(
+    //      'id_perawat'   => $_POST['id_perawat'][$key],
+    //      'tgl'   => $_POST['tgl'] 
+    //     );
+    //     // array_push($arr_id_perawat, $_POST['id_perawat'][$key]);
+    //     $this->db->insert_batch('tb_penjadwalan', $result); 
+    //   }
+    // $arr_id_perawat = $_POST['id_perawat'];
+    // $count_id_perawat = count($arr_id_perawat) -2;
+    // $in_perawat = '';
+    // foreach ($arr_id_perawat as $key => $value) {
+    //   $semicolon = ',';
+    //   if($count_id_perawat < $key)
+    //     $semicolon = '';
+    //   $in_perawat.= "'$value'". $semicolon;
+    // }
+    // $perawat_not_in = $this->M_modul->getPerawatNotInJadwal($in_perawat);
+    //  echo "<pre>";
+    //  var_dump($result); 
+    //  echo "</pre>"; 
+    //   echo "<br>simpan data libur <br> ";
+    //   //$this->db->insert_batch('tb_penjadwalan', $result);
+    //   $result2 = array();
+    //   foreach($perawat_not_in AS $key => $val){
+    //     $result2[] = array(
+    //      'id_perawat'   => $val->id_perawat,
+    //      'tgl_masuk'   => $_POST['tgl']
+    //     );
+    //    // $this->db->insert_batch('tb_masuk', $result2);
+    //   }
+    //   //$this->db->insert_batch('tb_masuk', $result2);
+    //   echo '<script>alert("Sukses Penjadwalan")</script>';
+    //   redirect('admin/C_modul/pegawai_libur','refresh');
+      //$perawat_not_in = $this->M_modul->getPerawatNotInJadwal($in_perawat);
+      $tanggal_libur= $this->db->query("SELECT * FROM tb_libur ")->result();
+      //$tanggal_libur = $this->M_modul->get_libur();
+      
+      $take_libur = 0;
+      $skip_libur= 0;
+      $take = 0;
+      $skip = 0;
+      $total_data = $this->db->query('select count(id_perawat) as jumlah from tb_perawat')->result()[0];
+      
+      $arr_perawat_libur_b4 = [];
+      $arr_perawat_masuk = [];
+      foreach ($tanggal_libur as $key => $value) {
+        # code...
+        $take_libur = $value->libur;
+        $skip += $take_libur;
+        $arr_perawat_masuk[$key] = [];
+        $arr_perawat_libur_b4[$key] = [];
+        if($key == 0){
+          $take = $total_data->jumlah;
+        }else{
+          $take -= $value->libur;
+        }
+        
+        $perawat = $this->db->query("select id_perawat from tb_perawat limit $take offset $skip")->result(); //36
+        $perawat_libur = $this->db->query("select id_perawat from tb_perawat limit $take_libur offset $skip_libur")->result(); //4
+        // dd($this->db->last_query(), $perawat_libur);
+        foreach ($perawat_libur as $key_perawat => $value_perawat_libur) {
+          # code...
+          $set_jadwal_perawat[$key][] = array(
+                 'id_perawat'   => $value_perawat_libur->id_perawat,
+                 'tgl'   => $value->tgl 
+                );
+          array_push($arr_perawat_libur_b4[$key], $value_perawat_libur->id_perawat);
+        }
+        if($key > 0){
+          foreach ($arr_perawat_libur_b4[$key - 1] as $key_b4 => $value_b4) {
+            $set_perawat_masuk = [
+              'id_perawat' => $value_b4,
+              'tgl_masuk' => $value->tgl,
+            ];
+            array_push($arr_perawat_masuk[$key], $set_perawat_masuk);
+          }
+        }
 
-     // die();
-      //$this->load->view('admin/V_proses', $data);
+        foreach ($perawat as $key_perawat => $value_perawat) {
+          $set_perawat_masuk = [
+            'id_perawat' => $value_perawat->id_perawat,
+            'tgl_masuk' => $value->tgl,
+          ];
+          array_push($arr_perawat_masuk[$key], $set_perawat_masuk);
+        }        
+
+        $skip_libur += $take_libur;
+        $this->db->insert_batch('tb_masuk', $arr_perawat_masuk[$key]);
+        $this->db->insert_batch('tb_penjadwalan', $set_jadwal_perawat[$key]); 
+        
+        
+      }
+     // dd($set_jadwal_perawat);
+      echo '<script>alert("Sukses Penjadwalan")</script>';
+      redirect('admin/C_modul/lihat', 'refresh');
     }
     public function lihat()
     {
@@ -223,6 +321,13 @@ class C_modul extends CI_Controller
         $this->db->truncate('tb_penjadwalan');
         redirect('admin/C_modul/pegawai_libur','refresh');
      }
+     public function truncate_masuk()
+     {
+        //$data['prediksi'] = $this->M_sir->truncate();
+        $this->db->truncate('tb_masuk');
+        redirect('admin/C_modul/lihat','refresh');
+     }
+     
     
 	}
 

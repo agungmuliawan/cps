@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 03:10 PM
+-- Generation Time: Dec 16, 2021 at 11:10 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `tb_libur` (
   `R` varchar(5) NOT NULL,
   `libur` varchar(5) NOT NULL,
   `tgl` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_libur`
@@ -41,7 +41,21 @@ CREATE TABLE IF NOT EXISTS `tb_libur` (
 
 INSERT INTO `tb_libur` (`id_libur`, `S`, `I`, `R`, `libur`, `tgl`) VALUES
 (1, '2', '263', '80', '4', '2021-12-01'),
-(2, '0', '247', '98', '5', '2021-12-02');
+(2, '0', '247', '98', '5', '2021-12-02'),
+(3, '21', '12', '12', '4', '2021-12-01'),
+(4, '23', '1', '1', '2', '2021-12-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_masuk`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_masuk` (
+`id_masuk` int(5) NOT NULL,
+  `id_perawat` int(5) NOT NULL,
+  `tgl_masuk` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -97,7 +111,6 @@ INSERT INTO `tb_pengumuman` (`id_pengumuman`, `judul`, `isi`, `deadline`, `statu
 CREATE TABLE IF NOT EXISTS `tb_penjadwalan` (
 `id_jadwal` int(5) NOT NULL,
   `id_perawat` int(5) NOT NULL,
-  `status` int(5) NOT NULL,
   `tgl` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -119,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `tb_perawat` (
 --
 
 INSERT INTO `tb_perawat` (`id_perawat`, `nama_perawat`, `jk`, `status`) VALUES
-(1, 'Aab', 'l', '1'),
+(1, 'Aska', 'l', '1'),
 (2, 'Abi', 'p', '1'),
 (3, 'Aca', 'p', '1'),
 (4, 'Adi', 'l', '1'),
@@ -163,6 +176,55 @@ INSERT INTO `tb_perawat` (`id_perawat`, `nama_perawat`, `jk`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_prediksi_sir`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_prediksi_sir` (
+`id_prediksi` int(5) NOT NULL,
+  `s` int(5) NOT NULL,
+  `i` int(5) NOT NULL,
+  `r` int(5) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_prediksi_sir`
+--
+
+INSERT INTO `tb_prediksi_sir` (`id_prediksi`, `s`, `i`, `r`) VALUES
+(1, 34, 250, 20),
+(2, 26, 241, 38),
+(3, 19, 230, 54),
+(4, 15, 219, 70),
+(5, 12, 207, 86),
+(6, 9, 195, 100),
+(7, 7, 183, 114),
+(8, 6, 171, 127),
+(9, 5, 160, 139),
+(10, 4, 150, 150),
+(11, 4, 140, 160),
+(12, 3, 131, 170),
+(13, 3, 122, 179),
+(14, 2, 114, 188),
+(15, 2, 106, 196),
+(16, 2, 99, 203),
+(17, 2, 92, 210),
+(18, 2, 86, 217),
+(19, 1, 80, 223),
+(20, 1, 74, 228),
+(21, 1, 69, 233),
+(22, 1, 65, 238),
+(23, 1, 60, 243),
+(24, 1, 56, 247),
+(25, 1, 52, 251),
+(26, 1, 49, 255),
+(27, 1, 45, 258),
+(28, 1, 42, 261),
+(29, 1, 39, 264),
+(30, 1, 36, 267);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_user`
 --
 
@@ -198,6 +260,12 @@ ALTER TABLE `tb_libur`
  ADD PRIMARY KEY (`id_libur`);
 
 --
+-- Indexes for table `tb_masuk`
+--
+ALTER TABLE `tb_masuk`
+ ADD PRIMARY KEY (`id_masuk`);
+
+--
 -- Indexes for table `tb_modul`
 --
 ALTER TABLE `tb_modul`
@@ -222,6 +290,12 @@ ALTER TABLE `tb_perawat`
  ADD PRIMARY KEY (`id_perawat`);
 
 --
+-- Indexes for table `tb_prediksi_sir`
+--
+ALTER TABLE `tb_prediksi_sir`
+ ADD PRIMARY KEY (`id_prediksi`);
+
+--
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
@@ -235,7 +309,12 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_libur`
 --
 ALTER TABLE `tb_libur`
-MODIFY `id_libur` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_libur` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tb_masuk`
+--
+ALTER TABLE `tb_masuk`
+MODIFY `id_masuk` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tb_modul`
 --
@@ -256,6 +335,11 @@ MODIFY `id_jadwal` int(5) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `tb_perawat`
 MODIFY `id_perawat` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT for table `tb_prediksi_sir`
+--
+ALTER TABLE `tb_prediksi_sir`
+MODIFY `id_prediksi` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `tb_user`
 --

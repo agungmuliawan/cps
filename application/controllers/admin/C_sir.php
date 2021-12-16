@@ -45,6 +45,7 @@ class C_sir extends CI_Controller {
         $s_input = $_POST['s'];
         $i_input = $_POST['i'];
         $r_input = $_POST['r'];
+        $jml = $_POST['jml'];
 
         $set_input[0] = [
             's' => $s_input,
@@ -52,7 +53,7 @@ class C_sir extends CI_Controller {
             'r' => $r_input,
         ];
 
-        $day_sir = 50;
+        $day_sir = $jml;
         $s = [];
         $i = [];
         $r = [];
@@ -68,8 +69,8 @@ class C_sir extends CI_Controller {
             $beta = 0.001;
             $gamma = 0.07;
             $s[$index] = ((-$beta * $s[$before_index] * $i[$before_index]) + $s[$before_index]);
-            $r[$index] = (($beta * $s[$before_index] * $i[$before_index]) - ($gamma * $i[$before_index]) + $i[$before_index]);
-            $i[$index] = (($gamma * $i[$before_index]) + $r[$before_index]);
+            $i[$index] = (($beta * $s[$before_index] * $i[$before_index]) - ($gamma * $i[$before_index]) + $i[$before_index]);
+            $r[$index] = (($gamma * $i[$before_index]) + $r[$before_index]);
             $set_input[$index] = [
                 's' => $s[$index],
                 'i' => $i[$index],
@@ -82,15 +83,23 @@ class C_sir extends CI_Controller {
         //echo "sukses";
         $this->db->insert_batch('tb_prediksi_sir', $set_input);
         redirect('admin/C_sir/hasil_prediksi','refresh');
+        echo '<script>alert("Sukses Prediksi SIR")</script>';
        // pre($set_input);
         // 
      }
      public function hasil_prediksi()
-     {
+     {///iki lee mek takk panggil otk
+      
         $data['prediksi'] = $this->M_sir->prediksi();
         $this->load->view('admin/V_hasil_prediksi', $data);
      }
      public function truncate()
+     {
+        //$data['prediksi'] = $this->M_sir->truncate();
+        $this->db->truncate('tb_prediksi_sir');
+        redirect('admin/C_sir','refresh');
+     }
+     public function truncate_data()
      {
         //$data['prediksi'] = $this->M_sir->truncate();
         $this->db->truncate('tb_prediksi_sir');

@@ -81,8 +81,8 @@ $panggil = $this->session->userdata();
 						<div class="card">
 							<div class="card-body">
 								<!-- <h4 class="header-title">Data Table Dark</h4> -->
-								<a href="<?php echo site_url('admin/C_modul/tambah_data_libur');?>" button type="button"
-									class="btn btn-dark mb-3">Hapusbutton></a>
+								<a href="<?php echo site_url('admin/C_modul/truncate_masuk');?>" button type="button"
+									class="btn btn-dark mb-3">Truncate Data></a>
 								<div class="data-tables datatable-dark">
 									<table id="dataTable3" class="text-center">
 										<thead class="text-capitalize">

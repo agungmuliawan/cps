@@ -49,7 +49,7 @@ $panggil = $this->session->userdata();
 							<h4 class="page-title pull-left">Dashboard</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Data Penjadwalan</span></li>
+								<li><span>Proses Penjadwalan</span></li>
 							</ul>
 						</div>
 					</div>
@@ -76,24 +76,44 @@ $panggil = $this->session->userdata();
 			<!-- page title area end -->
 			<div class="main-content-inner">
 				<div class="row">
+					<div class="col-lg-12 mt-2">
+						<div class="card">
+							<div id="accordion5" class="according accordion-s2 gradiant-bg">
+								<div class="card">
+									<div class="card-header">
+										<a class="collapsed card-link" data-toggle="collapse" href="#accordion52">
+											Baca Dulu</b>
+										</a>
+									</div>
+									<div id="accordion52" class="collapse" data-parent="#accordion5">
+										<div class="card-body">
+											Ini adalah proses penjadwalan sesuai dengan data libur di tabel prediksi
+											SIR.
+											jadi prosesnya baca data yang di SIR
 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- seo fact area start -->
 					<div class="col-12 mt-5">
 						<div class="card">
 							<div class="card-body">
-								<?php // echo form_open_multipart('admin/C_modul/proses');
-									echo form_open_multipart('admin/C_modul/proses_baru');?>
-								<div class="form-group">
+								<?php  echo form_open_multipart('admin/C_modul/proses_baru2');
+									// echo form_open_multipart('admin/C_modul/proses_baru');?>
+								<!-- <div class="form-group">
 									<label for="example-text-input" class="col-form-label">Jumlah Perawat</label>
 									<?php 
                                             $resultP= $this->db->query("SELECT COUNT(id_perawat) as jumlah FROM tb_perawat")->result();
                                             foreach ($resultP as $row) {
                                             ?>
-									<input class="form-control" name="jumlah_perawat" value="<?php echo $row->jumlah?>"
-										readonly>
+									<input class="form-control" type="hidden" name="jumlah_perawat" value="<?php echo $row->jumlah?>"
+										>
 									<?php } ?>
-								</div>
-								<label class="col-md-2" style="text-align:left;">Pilih Tanggal</label>
+								</div> -->
+								<!-- <label class="col-md-2" style="text-align:left;">Pilih Tanggal</label>
 								<div class="col-md-3">
 									<select class="form-control" name="tgl" id="tgl">
 										<?php 
@@ -106,8 +126,8 @@ $panggil = $this->session->userdata();
 										<?php } ?>
 
 									</select>
-								</div>
-								<label class="col-md-2" style="text-align:left;">Pilih Pegawai Libur</label>
+								</div> -->
+								<!-- <label class="col-md-2" style="text-align:left;">Pilih Pegawai Libur</label>
 								<div class="col-md-3">
 									<select class="form-control" name="id_perawat[]" id="id_perawat" multiple style="width: 200%;">
 										<?php 
@@ -120,24 +140,13 @@ $panggil = $this->session->userdata();
 										<?php } ?>
 
 									</select>
-								</div>
+								</div> -->
 								<div class="col-md-2 form-group">
+									<!-- <input type="submit" value="Proses Penjadwalan" class="btn btn-dark mb-3"> -->
 									<input type="submit" value="Proses Penjadwalan" class="btn btn-dark mb-3">
 									<a href="<?php echo site_url('admin/C_modul/lihat');?>" button type="button"
-									class="btn btn-dark mb-3">Lihat Penjadwalan</button></a>
+										class="btn btn-dark mb-3">Lihat Penjadwalan</button></a>
 								</div>
-								
-								<!-- <h4 class="header-title">Data Table Dark</h4> -->
-								<!-- <div class="data-tables datatable-dark">
-									<table id="dataTable3" class="text-center">
-										<thead class="text-capitalize">
-											<tr>
-												<th>No</th>
-												<th>Nama Perawat</th>
-												<th>Tanggal Masuk</th>
-												<th>Aksi</th>
-											</tr>
-										</thead>
 										<?php
 										$no = 1;
 										if ($penjadwalan == 0) {
@@ -165,30 +174,18 @@ $panggil = $this->session->userdata();
                                     ?>
 										</tbody>
 									</table>
-							</div> -->
-						</div>
+							</div> 
+							</div>
 
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 	</div>
 
-	<!-- main content area end -->
-	<!-- footer area start-->
-	<footer>
-		<div class="footer-area">
-			<p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
-			</p>
-		</div>
-	</footer>
-	<!-- footer area end-->
-	</div>
-	<!-- page container area end -->
-	<!-- offset area start -->
-
-	<!-- offset area end -->
-	<!-- jquery latest version -->
 
 
 	<?php
