@@ -91,6 +91,10 @@ $panggil = $this->session->userdata();
 						</div>
 					</div>
 				</div>
+				<center>
+								<img src="<?php echo base_url('assets/images/rumus.png')?>" width="30%" height="30%">
+								<!-- <div id="verview-shart"></div> -->
+								</center>
 				<?php echo form_open_multipart('admin/C_sir/proc'); ?>
 				<div class="form-group">
 					<label for="example-text-input" class="col-form-label">Susceptible (S)</label>

@@ -82,13 +82,13 @@ class C_sir extends CI_Controller {
         }
         //echo "sukses";
         $this->db->insert_batch('tb_prediksi_sir', $set_input);
-        redirect('admin/C_sir/hasil_prediksi','refresh');
-        echo '<script>alert("Sukses Prediksi SIR")</script>';
-       // pre($set_input);
+        //redirect('admin/C_sir/hasil_prediksi','refresh');//ini directnya
+        //echo '<script>alert("Sukses Prediksi SIR")</script>';
+       pre($set_input);
         // 
      }
      public function hasil_prediksi()
-     {///iki lee mek takk panggil otk
+     {
       
         $data['prediksi'] = $this->M_sir->prediksi();
         $this->load->view('admin/V_hasil_prediksi', $data);

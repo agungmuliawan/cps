@@ -13,9 +13,13 @@ $panggil = $this->session->userdata();
 		$s[] = $row->s; //ambil bulan
 		$i[] = $row->i; //ambil nilai
 		$r[] = $row->r;
+
 	 }
-	//echo json_encode($day);
-	// die();
+	// echo json_encode($day);
+	// echo json_encode($s);
+	// echo json_encode($i);
+	// echo json_encode($r);
+	//  die();
 	?>
 <body>
 	<div id="preloader">
@@ -96,10 +100,13 @@ $panggil = $this->session->userdata();
 										<option selected>Last 24 Hours</option>
 										<option value="0">01 July 2018</option>
 									</select> -->
-									<!-- oke le lanjut -->
 								</div>
-								
-								<div id="verview-shart"></div>
+								<!-- <div id="user-statistics"></div> -->
+								<!-- <div id="amlinechart5"></div> -->
+	 							<center>
+								<img src="<?php echo base_url('assets/images/sir.jpg')?>" width="68%" height="70%">
+								<!-- <div id="verview-shart"></div> -->
+								</center>
 								
 								<!-- <canvas id="canvas" width="1000" height="280"></canvas> -->
 							</div>
@@ -251,6 +258,98 @@ $panggil = $this->session->userdata();
         height: "100%",
         width: "100%"
     });
+	</script>
+	
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	<?php
+	 $prediksi2= $this->db->query('select * from tb_prediksi_sir')->result();
+	 $result2 = array();
+	 foreach ($prediksi2 as $row) {
+		//$day[] = $row->id_prediksi;
+		//$s[] = $row->s; //ambil bulan
+		//$i[] = $row->i; //ambil nilai
+		//$r[] = $row->r;
+		//var_dump($prediksi2);
+		//die();
+		
+		$result2[] = array(
+		'hari'   => $row->id_prediksi,
+      's'   => $row->s);
+	  
+	 }
+	 //var_dump($result2);
+	 echo json_encode($result2);
+	?>
+	<script>	
+    var chart = AmCharts.makeChart("amlinechart5", {
+        "type": "serial",
+        "theme": "light",
+        "marginRight": 20,
+        "marginTop": 17,
+        "autoMarginOffset": 20,
+        "dataProvider": [{
+			<?php echo pre($result2) ?>,
+            // "date": "2012-03-01",
+            // "price": 20
+        }],
+        "valueAxes": [{
+            "logarithmic": true,
+            "dashLength": 1,
+            "guides": [{
+                "dashLength": 6,
+                "inside": true,
+                "label": "average",
+                "lineAlpha": 1,
+                "value": 90.4
+            }],
+            "position": "left"
+        }],
+        "graphs": [{
+            "bullet": "round",
+            "id": "g1",
+            "bulletBorderAlpha": 1,
+            "bulletColor": "#FFFFFF",
+            "bulletSize": 7,
+            "lineThickness": 2,
+            "title": "Price",
+            "type": "smoothedLine",
+            "useLineColorForBulletBorder": true,
+            "valueField": "price"
+        }],
+        "chartScrollbar": {},
+        "chartCursor": {
+            "valueLineEnabled": true,
+            "valueLineBalloonEnabled": true,
+            "valueLineAlpha": 0.5,
+            "fullWidth": true,
+            "cursorAlpha": 0.05
+        },
+        "dataDateFormat": "YYYY-MM-DD",
+        "categoryField": "date",
+        "categoryAxis": {
+            "parseDates": true
+        },
+        "export": {
+            "enabled": false
+        }
+    });
+
+    chart.addListener("dataUpdated", zoomChart);
+
+    function zoomChart() {
+        chart.zoomToDates(new Date(2012, 2, 2), new Date(2012, 2, 10));
+    }
+
+	// zingchart.render({
+    //     id: 'coba',
+    //     data: chart,
+    //     height: "100%",
+    //     width: "100%"
+    // });
+	
 	</script>
 	
 

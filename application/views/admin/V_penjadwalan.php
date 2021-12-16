@@ -147,6 +147,18 @@ $panggil = $this->session->userdata();
 									<a href="<?php echo site_url('admin/C_modul/lihat');?>" button type="button"
 										class="btn btn-dark mb-3">Lihat Penjadwalan</button></a>
 								</div>
+
+								<!-- <h4 class="header-title">Data Table Dark</h4> -->
+								<!-- <div class="data-tables datatable-dark">
+									<table id="dataTable3" class="text-center">
+										<thead class="text-capitalize">
+											<tr>
+												<th>No</th>
+												<th>Nama Perawat</th>
+												<th>Tanggal Masuk</th>
+												<th>Aksi</th>
+											</tr>
+										</thead>
 										<?php
 										$no = 1;
 										if ($penjadwalan == 0) {
@@ -174,7 +186,7 @@ $panggil = $this->session->userdata();
                                     ?>
 										</tbody>
 									</table>
-							</div> 
+							</div> -->
 							</div>
 
 						</div>

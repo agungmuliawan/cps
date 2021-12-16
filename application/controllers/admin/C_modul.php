@@ -299,14 +299,18 @@ class C_modul extends CI_Controller
         }        
 
         $skip_libur += $take_libur;
-        $this->db->insert_batch('tb_masuk', $arr_perawat_masuk[$key]);
+       $this->db->insert_batch('tb_masuk', $arr_perawat_masuk[$key]);
         $this->db->insert_batch('tb_penjadwalan', $set_jadwal_perawat[$key]); 
         
         
       }
-     // dd($set_jadwal_perawat);
-      echo '<script>alert("Sukses Penjadwalan")</script>';
-      redirect('admin/C_modul/lihat', 'refresh');
+      //dd($set_jadwal_perawat);
+     pre($set_jadwal_perawat);
+      pre($arr_perawat_masuk);
+      //var_dump($set_jadwal_perawat);
+      //var_dump($arr_perawat_masuk);
+      echo '<script>alert("Sukses Penjadwalan")</script>'; //ini direct
+     // redirect('admin/C_modul/lihat', 'refresh');
     }
     public function lihat()
     {
