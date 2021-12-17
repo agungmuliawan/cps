@@ -104,7 +104,7 @@ $panggil = $this->session->userdata();
 								<!-- <div id="user-statistics"></div> -->
 								<!-- <div id="amlinechart5"></div> -->
 	 							<center>
-								<!-- <img src="<?php echo base_url('assets/images/sir.jpg')?>" width="68%" height="70%"> -->
+								<img src="<?php echo base_url('assets/images/sir.jpg')?>" width="68%" height="70%">
 								<!-- <div id="verview-shart"></div> -->
 								</center>
 								<canvas id="speedChart"></canvas>
