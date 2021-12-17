@@ -182,9 +182,7 @@ $panggil = $this->session->userdata();
 			</footer>
 			<!-- footer area end-->
 		</div>
-		<?php
-		console.log($s);
-		?>
+
 
     <!-- <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
 	<script src="<?php echo base_url('assets/js/zingchart.min.js')?>"></script>
@@ -268,25 +266,7 @@ $panggil = $this->session->userdata();
 	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-	<?php
-	 $prediksi2= $this->db->query('select * from tb_prediksi_sir')->result();
-	 $result2 = array();
-	 foreach ($prediksi2 as $row) {
-		//$day[] = $row->id_prediksi;
-		//$s[] = $row->s; //ambil bulan
-		//$i[] = $row->i; //ambil nilai
-		//$r[] = $row->r;
-		//var_dump($prediksi2);
-		//die();
-		
-		$result2[] = array(
-		'hari'   => $row->id_prediksi,
-      's'   => $row->s);
-	  
-	 }
-	 //var_dump($result2);
-	 echo json_encode($result2);
-	?>
+
 	<script>	
     var chart = AmCharts.makeChart("amlinechart5", {
         "type": "serial",
