@@ -9,18 +9,18 @@ $panggil = $this->session->userdata();
 	 $prediksi = $this->db->query('select * from tb_prediksi_sir')->result();
 
 	 foreach ($prediksi as $row) {
-		$day[] = $row->id_prediksi;
-		$s[] = $row->s; //ambil bulan
-		$i[] = $row->i; //ambil nilai
-		$r[] = $row->r;
+		$day[] = (string)$row->id_prediksi;
+		$s[] = (int)$row->s; //ambil bulan
+		$i[] = (int)$row->i; //ambil nilai
+		$r[] = (int)$row->r;
 
 	 }
 	// echo json_encode($day);
-	// echo json_encode($s);
-	// echo json_encode($i);
+	//// echo json_encode($i);
 	// echo json_encode($r);
-	//  die();
+	//die();
 	?>
+	<script src=" <?php echo base_url('assets/js/chart.min.js') ?>"></script>
 <body>
 	<div id="preloader">
 		<div class="loader"></div>
@@ -104,9 +104,10 @@ $panggil = $this->session->userdata();
 								<!-- <div id="user-statistics"></div> -->
 								<!-- <div id="amlinechart5"></div> -->
 	 							<center>
-								<img src="<?php echo base_url('assets/images/sir.jpg')?>" width="68%" height="70%">
+								<!-- <img src="<?php echo base_url('assets/images/sir.jpg')?>" width="68%" height="70%"> -->
 								<!-- <div id="verview-shart"></div> -->
 								</center>
+								<canvas id="speedChart"></canvas>
 								
 								<!-- <canvas id="canvas" width="1000" height="280"></canvas> -->
 							</div>
@@ -181,6 +182,9 @@ $panggil = $this->session->userdata();
 			</footer>
 			<!-- footer area end-->
 		</div>
+		<?php
+		console.log($s);
+		?>
 
     <!-- <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
 	<script src="<?php echo base_url('assets/js/zingchart.min.js')?>"></script>
@@ -291,10 +295,26 @@ $panggil = $this->session->userdata();
         "marginTop": 17,
         "autoMarginOffset": 20,
         "dataProvider": [{
-			<?php echo pre($result2) ?>,
-            // "date": "2012-03-01",
-            // "price": 20
-        }],
+            "date": "2012-03-01",
+            "price": 30
+        },
+		{
+            "date": "2012-07-29",
+            "value": 20
+        },
+		{
+            "date": "2012-07-29",
+            "value": 20
+        },
+		{
+            "date": "2012-07-29",
+            "value": 20
+        },
+		{
+            "date": "2012-07-29",
+            "value": 15
+        }
+	],
         "valueAxes": [{
             "logarithmic": true,
             "dashLength": 1,
@@ -349,9 +369,82 @@ $panggil = $this->session->userdata();
     //     height: "100%",
     //     width: "100%"
     // });
-	
+
 	</script>
-	
+	<script>
+		 var speedCanvas = document.getElementById("speedChart");
+
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontSize = 18;
+var dataFirst = {
+    label: "Suspected",
+    data: <?php echo json_encode($s)?>, 
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'red',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'red',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2,
+    pointStyle: 'rect'
+  };
+
+var dataSecond = {
+    label: "Infected",
+    data: <?php echo json_encode($i)?>,
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'purple',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'purple',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2
+  };
+
+  var datathird = {
+    label: "Recovered",
+    data: <?php echo json_encode($r)?>,
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'green',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'blue',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2
+  };
+
+var speedData = {
+  labels: <?php echo json_encode($day) ?>, //ini "" sama ab?isinya id_prediksi itu ab $day
+  datasets: [dataFirst, dataSecond,datathird]
+};
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black'
+    }
+  }
+};
+
+var lineChart = new Chart(speedCanvas, {
+  type: 'line',
+  data: speedData,
+  options: chartOptions
+});
+// console.log(<?php echo json_encode($s)?>);
+		</script>
 
 	<?php
     $this->load->view('template/js');

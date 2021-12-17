@@ -35,6 +35,7 @@
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 <!-- all line chart activation -->
+<script src=" <?php echo base_url('assets/js/chart.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/line-chart.js')?>"></script>
 <!-- all pie chart -->
 <script src="<?php echo base_url('assets/js/pie-chart.js')?>"></script>
